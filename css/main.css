@@ -1,0 +1,240 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --bg-main: #0f172a;        /* slate-900 */
+    --bg-card: #020617;        /* slate-950 */
+    --text-main: #e5e7eb;      /* gray-200 */
+    --text-muted: #94a3b8;     /* slate-400 */
+    --accent: #38bdf8;         /* sky-400 */
+    --accent-soft: #0ea5e9;    /* sky-500 */
+    --danger: #ef4444;
+    --radius: 12px;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* =========================
+     HEADER
+  ========================= */
+  .app-header {
+    padding: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .app-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+  }
+  
+  /* =========================
+     TAB NAVIGATION
+  ========================= */
+  .tab-nav {
+    display: flex;
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .tab-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+  
+  .tab-btn:hover {
+    color: var(--accent-soft);
+  }
+  
+  /* =========================
+     MAIN CONTAINER
+  ========================= */
+  .tab-container {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  /* =========================
+     TAB CONTENT
+  ========================= */
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  /* =========================
+     SEARCH
+  ========================= */
+  .search-box input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: var(--radius);
+    border: 1px solid #1e293b;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    font-size: 1rem;
+  }
+  
+  .search-box input::placeholder {
+    color: var(--text-muted);
+  }
+  
+  .filter-box {
+    margin-top: 0.6rem;
+  }
+  
+  .filter-box select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: var(--radius);
+    background-color: var(--bg-card);
+    border: 1px solid #1e293b;
+    color: var(--text-main);
+  }
+  
+  /* =========================
+     RESULT LIST
+  ========================= */
+  .result-list {
+    list-style: none;
+    margin-top: 1rem;
+  }
+  
+  .result-list li {
+    background-color: var(--bg-card);
+    border: 1px solid #1e293b;
+    border-radius: var(--radius);
+    padding: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .result-list .lafadz {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .result-list .arti {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+  
+  .result-list .meta {
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+    color: var(--accent);
+  }
+  
+  /* =========================
+     FORM
+  ========================= */
+  form {
+    background-color: var(--bg-card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid #1e293b;
+  }
+  
+  .form-group {
+    margin-bottom: 0.9rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.65rem;
+    border-radius: var(--radius);
+    border: 1px solid #1e293b;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-size: 0.95rem;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* =========================
+     FORM ACTIONS
+  ========================= */
+  .form-actions {
+    display: flex;
+    gap: 0.6rem;
+  }
+  
+  button {
+    flex: 1;
+    padding: 0.7rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+  }
+  
+  button[type="submit"] {
+    background-color: var(--accent);
+    color: #020617;
+    font-weight: 600;
+  }
+  
+  button.secondary {
+    background-color: #1e293b;
+    color: var(--text-main);
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* =========================
+     FOOTER
+  ========================= */
+  .app-footer {
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid #1e293b;
+  }
+  

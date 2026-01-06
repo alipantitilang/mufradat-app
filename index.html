@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mufradat App</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <h1>📘 Mufradat</h1>
+    <p class="subtitle">Catatan kata, jejak ilmu</p>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="search-tab">
+      🔍 Pencarian
+    </button>
+    <button class="tab-btn" data-tab="add-tab">
+      ➕ Tambah
+    </button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="tab-container">
+
+    <!-- TAB: PENCARIAN -->
+    <section id="search-tab" class="tab-content active">
+
+      <!-- Search Input -->
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari lafadz atau arti..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Filter Jenis -->
+      <div class="filter-box">
+        <select id="jenisFilter">
+          <option value="">Semua Jenis</option>
+          <!-- opsi jenis dari JS -->
+        </select>
+      </div>
+
+      <!-- Result List -->
+      <ul id="resultList" class="result-list">
+        <!-- hasil pencarian muncul di sini -->
+      </ul>
+
+    </section>
+
+    <!-- TAB: TAMBAH DATA -->
+    <section id="add-tab" class="tab-content">
+
+      <form id="mufradatForm">
+
+        <div class="form-group">
+          <label for="lafadz">Lafadz Arab</label>
+          <input type="text" id="lafadz" required />
+        </div>
+
+        <div class="form-group">
+          <label for="arti">Arti</label>
+          <input type="text" id="arti" required />
+        </div>
+
+        <div class="form-group">
+          <label for="jenis">Jenis</label>
+          <select id="jenis">
+            <!-- opsi jenis dari JS -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="jenisBaru">Tambah Jenis Baru (opsional)</label>
+          <input
+            type="text"
+            id="jenisBaru"
+            placeholder="misal: Fi'il Amr"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="catatan">Catatan</label>
+          <textarea id="catatan" rows="3"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">💾 Simpan</button>
+          <button type="reset" class="secondary">♻ Reset</button>
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <small>© Mufradat App — tumbuh pelan, tapi jalan</small>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/app.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/sort.js"></script>
+  <script src="js/utils.js"></script>
+
+  
+
+</body>
+</html>

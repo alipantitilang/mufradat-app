@@ -1,0 +1,80 @@
+/* =========================
+   TABLET & UP ( ≥ 768px )
+========================= */
+@media (min-width: 768px) {
+
+    body {
+      align-items: center;
+    }
+  
+    .tab-container {
+      width: 720px;
+    }
+  
+    .app-header,
+    .tab-nav,
+    .app-footer {
+      width: 720px;
+    }
+  
+    .result-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem;
+    }
+  
+    .result-list .lafadz {
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* =========================
+     DESKTOP & UP ( ≥ 1024px )
+  ========================= */
+  @media (min-width: 1024px) {
+  
+    .tab-container {
+      width: 900px;
+    }
+  
+    .app-header,
+    .tab-nav,
+    .app-footer {
+      width: 900px;
+    }
+  
+    .tab-nav {
+      border-left: 1px solid #1e293b;
+      border-right: 1px solid #1e293b;
+    }
+  
+    .tab-container {
+      border-left: 1px solid #1e293b;
+      border-right: 1px solid #1e293b;
+    }
+  
+    form {
+      padding: 1.4rem;
+    }
+  
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+  }
+  
+  /* =========================
+     WIDE DESKTOP ( ≥ 1280px )
+  ========================= */
+  @media (min-width: 1280px) {
+  
+    .tab-container {
+      width: 1040px;
+    }
+  
+    .app-header,
+    .tab-nav,
+    .app-footer {
+      width: 1040px;
+    }
+  }
+  
