@@ -78,3 +78,22 @@
     }
   }
   
+  @media (max-width: 360px) {
+    html {
+      font-size: 18px;
+    }
+  
+    body {
+      line-height: 1.55;
+    }
+  
+    .tab-btn {
+      padding: 0.9rem;
+      font-size: 1rem;
+    }
+  
+    .result-list .lafadz {
+      font-size: 1.3rem;
+    }
+  }
+  

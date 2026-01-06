@@ -1,3 +1,5 @@
+let editingId = null;
+
 // =========================
 // FORM HANDLER
 // =========================
@@ -66,20 +68,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
       // validasi ringan
-      if (!lafadz || !arti || !jenisId) {
-        alert("Isi lafadz, arti, dan jenis ya 🙂");
-        return;
+      if (editingId) {
+        updateMufradat(editingId, {
+          lafadz,
+          arti,
+          jenisId,
+          catatan,
+        });
+        editingId = null;
+        alert("✏️ Mufradat diperbarui");
+      } else {
+        addMufradat({
+          lafadz,
+          arti,
+          jenisId,
+          catatan,
+        });
+        alert("✨ Mufradat tersimpan");
       }
-  
-      addMufradat({
-        lafadz,
-        arti,
-        jenisId,
-        catatan,
-      });
-  
-      form.reset();
-      alert("✨ Mufradat tersimpan");
 
       // PINDAH TAB KE PENCARIAN
       if (typeof switchTab === "function") {
@@ -93,4 +99,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
+  function editMufradat(id) {
+    const data = getMufradatById(id);
+    if (!data) return;
+  
+    editingId = id;
+  
+    document.getElementById("lafadz").value = data.lafadz;
+    document.getElementById("arti").value = data.arti;
+    document.getElementById("jenis").value = data.jenisId;
+    document.getElementById("catatan").value = data.catatan || "";
+  
+    // pindah ke tab tambah
+    switchTab("add-tab");
+  }
+  

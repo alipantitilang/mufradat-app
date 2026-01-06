@@ -125,3 +125,8 @@ function getJenisById(id) {
   const jenisList = getJenisList();
   return jenisList.find((j) => j.id === id);
 }
+
+function getMufradatById(id) {
+  return getMufradatList().find((m) => m.id === id);
+}
+

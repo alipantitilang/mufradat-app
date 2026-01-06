@@ -6,19 +6,19 @@ const CACHE_NAME = "mufradat-cache-v1";
 
 // file inti yang wajib di-cache
 const ASSETS_TO_CACHE = [
-  "/",
-  "/index.html",
-  "/manifest.json",
+  "./",
+  "./index.html",
+  "./manifest.json",
 
-  "/css/main.css",
-  "/css/responsive.css",
+  "./css/main.css",
+  "./css/responsive.css",
 
-  "/js/app.js",
-  "/js/data.js",
-  "/js/form.js",
-  "/js/search.js",
-  "/js/sort.js",
-  "/js/utils.js"
+  "./js/app.js",
+  "./js/data.js",
+  "./js/form.js",
+  "./js/search.js",
+  "./js/sort.js",
+  "./js/utils.js"
 ];
 
 // =========================
@@ -59,5 +59,5 @@ self.addEventListener("fetch", (event) => {
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
-  );
+  );  
 });

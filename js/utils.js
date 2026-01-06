@@ -63,3 +63,11 @@ function removeHarakat(text = "") {
     });
   }
   
+  function confirmDelete(id) {
+    const ok = confirm("Yakin mau hapus mufradat ini?");
+    if (!ok) return;
+  
+    deleteMufradat(id);
+    renderSearchResults();
+  }
+  

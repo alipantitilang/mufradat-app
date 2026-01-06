@@ -76,12 +76,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
   
       li.innerHTML = `
-        <div>
+        <div class="item">
           <div class="lafadz">${m.lafadz}</div>
           <div class="arti">${m.arti}</div>
           <div class="meta">${jenis ? jenis.nama : ""}</div>
+      
+          <div class="actions">
+            <button class="edit" onclick="editMufradat(${m.id})">✏️ Edit</button>
+            <button class="delete" onclick="confirmDelete(${m.id})">🗑 Hapus</button>
+          </div>
         </div>
       `;
+
   
       resultList.appendChild(li);
     });
