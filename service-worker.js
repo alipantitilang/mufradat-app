@@ -1,48 +1,36 @@
-// =========================
-// SERVICE WORKER - MUFRADAT APP
-// =========================
-
-const CACHE_NAME = "mufradat-cache-v1";
-
-// file inti yang wajib di-cache
-const ASSETS_TO_CACHE = [
-  "./",
-  "./index.html",
-  "./manifest.json",
-
-  "./css/main.css",
-  "./css/responsive.css",
-
-  "./js/app.js",
-  "./js/data.js",
-  "./js/form.js",
-  "./js/search.js",
-  "./js/sort.js",
-  "./js/utils.js"
+const CACHE_NAME = "mufradat-pwa-v2"; // GANTI SETIAP UPDATE BESAR
+const ASSETS = [
+  "/",
+  "/index.html",
+  "css/main.css",
+  "css/responsive.css",
+  "js/app.js",
+  "js/data.js",
+  "js/form.js",
+  "js/search.js",
+  "js/sort.js",
+  "js/utils.js",
+  "/manifest.json",
+  "assets/icons/icon-192.png",
+  "assets/icons/icon-512.png"
 ];
 
-// =========================
-// INSTALL
-// =========================
-self.addEventListener("install", (event) => {
+// Install
+self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
   );
   self.skipWaiting();
 });
 
-// =========================
-// ACTIVATE
-// =========================
-self.addEventListener("activate", (event) => {
+// Activate (hapus cache lama)
+self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then((cacheNames) =>
+    caches.keys().then(keys =>
       Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
           }
         })
       )
@@ -51,13 +39,11 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// =========================
-// FETCH (CACHE FIRST)
-// =========================
-self.addEventListener("fetch", (event) => {
+// Fetch
+self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+    caches.match(event.request).then(res => {
+      return res || fetch(event.request);
     })
-  );  
+  );
 });

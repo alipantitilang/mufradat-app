@@ -1,24 +1,22 @@
 {
-    "name": "Mufradat App",
-    "short_name": "Mufradat",
-    "description": "Aplikasi catatan mufradat Arab–Indonesia. Ringan, offline, dan tumbuh bersama ilmu.",
-    "start_url": "./",
-    "scope": "./",
-    "display": "standalone",
-    "background_color": "#0f172a",
-    "theme_color": "#38bdf8",
-    "orientation": "portrait",
-    "icons": [
-      {
-        "src": "assets/icons/icon-192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "assets/icons/icon-512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ]
-  }
-  
+  "name": "Mufradat & Tasrif Arab",
+  "short_name": "Mufradat",
+  "description": "Catatan mufradat & tasrif fi'il Arab — ringkas, cepat, offline.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
