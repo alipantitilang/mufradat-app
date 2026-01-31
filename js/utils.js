@@ -71,3 +71,31 @@ function removeHarakat(text = "") {
     renderSearchResults();
   }
   
+  // =========================
+// TYPE HELPERS
+// =========================
+
+function isFiil(jenisId) {
+  const jenis = getJenisById(jenisId);
+  return jenis && jenis.nama.toLowerCase().includes("fi");
+}
+
+// =========================
+// MODAL BASIC (future UI)
+// =========================
+
+function openModal(html) {
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
+  modal.innerHTML = `
+    <div class="modal">
+      ${html}
+      <button class="close-modal" onclick="closeModal()">Tutup</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+function closeModal() {
+  document.querySelector(".modal-overlay")?.remove();
+}

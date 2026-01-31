@@ -54,7 +54,7 @@ function addJenis(namaJenis) {
   const jenisList = getJenisList();
 
   const exists = jenisList.find(
-    (j) => j.nama.toLowerCase() === namaJenis.toLowerCase()
+    j => j.nama.toLowerCase() === namaJenis.toLowerCase()
   );
   if (exists) return exists;
 
@@ -72,7 +72,7 @@ function addJenis(namaJenis) {
 // =========================
 // ADD MUFRADAT
 // =========================
-function addMufradat({ lafadz, arti, jenisId, catatan }) {
+function addMufradat({ lafadz, arti, jenisId, catatan, tasrif = null }) {
   const mufradatList = getMufradatList();
 
   const newMufradat = {
@@ -81,7 +81,9 @@ function addMufradat({ lafadz, arti, jenisId, catatan }) {
     arti: arti.trim(),
     jenisId,
     catatan: catatan || "",
+    tasrif,
     createdAt: new Date().toISOString(),
+    updatedAt: null,
   };
 
   mufradatList.push(newMufradat);
@@ -95,13 +97,14 @@ function addMufradat({ lafadz, arti, jenisId, catatan }) {
 // =========================
 function updateMufradat(id, updatedData) {
   const mufradatList = getMufradatList();
-  const index = mufradatList.findIndex((m) => m.id === id);
+  const index = mufradatList.findIndex(m => m.id === id);
 
   if (index === -1) return false;
 
   mufradatList[index] = {
     ...mufradatList[index],
     ...updatedData,
+    updatedAt: new Date().toISOString(),
   };
 
   saveMufradatList(mufradatList);
@@ -113,20 +116,21 @@ function updateMufradat(id, updatedData) {
 // =========================
 function deleteMufradat(id) {
   const mufradatList = getMufradatList();
-  const filtered = mufradatList.filter((m) => m.id !== id);
+  const filtered = mufradatList.filter(m => m.id !== id);
+
+  if (filtered.length === mufradatList.length) return false;
 
   saveMufradatList(filtered);
+  return true;
 }
 
 // =========================
 // HELPER
 // =========================
 function getJenisById(id) {
-  const jenisList = getJenisList();
-  return jenisList.find((j) => j.id === id);
+  return getJenisList().find(j => j.id === id);
 }
 
 function getMufradatById(id) {
-  return getMufradatList().find((m) => m.id === id);
+  return getMufradatList().find(m => m.id === id);
 }
-

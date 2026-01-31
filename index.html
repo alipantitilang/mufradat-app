@@ -8,37 +8,33 @@
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/responsive.css" />
-
 </head>
+
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="app-header">
     <h1>📘 Mufradat</h1>
     <p class="subtitle">Catatan kata, jejak ilmu</p>
   </header>
 
-  <!-- Navigation Tabs -->
+  <!-- TAB NAV -->
   <nav class="tab-nav">
-    <button class="tab-btn active" data-tab="search-tab">
-      🔍 Pencarian
-    </button>
-    <button class="tab-btn" data-tab="add-tab">
-      ➕ Tambah
-    </button>
+    <button class="tab-btn active" data-tab="search-tab">🔍 Pencarian</button>
+    <button class="tab-btn" data-tab="add-tab">➕ Tambah</button>
   </nav>
 
-  <!-- Main Content -->
+  <!-- MAIN -->
   <main class="tab-container">
 
-    <!-- TAB: PENCARIAN -->
+    <!-- ================= TAB: SEARCH ================= -->
     <section id="search-tab" class="tab-content active">
 
-      <!-- Search Input -->
       <div class="search-box">
         <input
           type="text"
@@ -48,25 +44,26 @@
         />
       </div>
 
-      <!-- Filter Jenis -->
       <div class="filter-box">
         <select id="jenisFilter">
           <option value="">Semua Jenis</option>
-          <!-- opsi jenis dari JS -->
         </select>
       </div>
 
-      <!-- Result List -->
-      <ul id="resultList" class="result-list">
-        <!-- hasil pencarian muncul di sini -->
+      <!-- LIST MUFRADAT -->
+      <ul id="resultList" class="result-list compact">
+        <!-- di-generate JS -->
       </ul>
 
     </section>
 
-    <!-- TAB: TAMBAH DATA -->
+    <!-- ================= TAB: ADD / EDIT ================= -->
     <section id="add-tab" class="tab-content">
 
       <form id="mufradatForm">
+
+        <!-- hidden id (untuk edit) -->
+        <input type="hidden" id="editId" />
 
         <div class="form-group">
           <label for="lafadz">Lafadz Arab</label>
@@ -80,18 +77,18 @@
 
         <div class="form-group">
           <label for="jenis">Jenis</label>
-          <select id="jenis">
-            <!-- opsi jenis dari JS -->
-          </select>
+          <select id="jenis"></select>
         </div>
 
         <div class="form-group">
           <label for="jenisBaru">Tambah Jenis Baru (opsional)</label>
-          <input
-            type="text"
-            id="jenisBaru"
-            placeholder="misal: Fi'il Amr"
-          />
+          <input type="text" id="jenisBaru" placeholder="misal: Fi'il Amr" />
+        </div>
+
+        <!-- AUTO TASRIF -->
+        <div class="form-group inline">
+          <input type="checkbox" id="autoTasrif" checked />
+          <label for="autoTasrif">Auto tasrif (fi'il)</label>
         </div>
 
         <div class="form-group">
@@ -110,7 +107,25 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- ================= MODAL TASRIF ================= -->
+  <div id="tasrifModal" class="modal hidden">
+    <div class="modal-content">
+
+      <header class="modal-header">
+        <h3 id="tasrifTitle">Tasrif Fi'il</h3>
+        <button id="closeTasrif">✕</button>
+      </header>
+
+      <div class="modal-body">
+        <table class="tasrif-table">
+          <!-- diisi oleh JS -->
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="app-footer">
     <small>© Mufradat App — tumbuh pelan, tapi jalan</small>
   </footer>
@@ -122,8 +137,6 @@
   <script src="js/search.js"></script>
   <script src="js/sort.js"></script>
   <script src="js/utils.js"></script>
-
-  
 
 </body>
 </html>

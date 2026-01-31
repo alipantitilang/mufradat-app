@@ -1,244 +1,338 @@
 html {
   font-size: 16px;
 }
+
 /* =========================
-   RESET & BASE
+   RESET & ROOT
 ========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --bg-main: #0f172a;        /* slate-900 */
-    --bg-card: #020617;        /* slate-950 */
-    --text-main: #e5e7eb;      /* gray-200 */
-    --text-muted: #94a3b8;     /* slate-400 */
-    --accent: #38bdf8;         /* sky-400 */
-    --accent-soft: #0ea5e9;    /* sky-500 */
-    --danger: #ef4444;
-    --radius: 12px;
-  }
-  
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* =========================
-     HEADER
-  ========================= */
-  .app-header {
-    padding: 1.2rem;
-    text-align: center;
-    border-bottom: 1px solid #1e293b;
-  }
-  
-  .app-header h1 {
-    font-size: 1.6rem;
-    font-weight: 700;
-  }
-  
-  .subtitle {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-top: 0.3rem;
-  }
-  
-  /* =========================
-     TAB NAVIGATION
-  ========================= */
-  .tab-nav {
-    display: flex;
-    border-bottom: 1px solid #1e293b;
-  }
-  
-  .tab-btn {
-    flex: 1;
-    padding: 0.8rem;
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .tab-btn.active {
-    color: var(--accent);
-    border-bottom: 2px solid var(--accent);
-  }
-  
-  .tab-btn:hover {
-    color: var(--accent-soft);
-  }
-  
-  /* =========================
-     MAIN CONTAINER
-  ========================= */
-  .tab-container {
-    flex: 1;
-    padding: 1rem;
-    max-width: 100%;
-  }
-  
-  /* =========================
-     TAB CONTENT
-  ========================= */
-  .tab-content {
-    display: none;
-  }
-  
-  .tab-content.active {
-    display: block;
-  }
-  
-  /* =========================
-     SEARCH
-  ========================= */
-  .search-box input {
-    width: 100%;
-    padding: 0.7rem;
-    border-radius: var(--radius);
-    border: 1px solid #1e293b;
-    background-color: var(--bg-card);
-    color: var(--text-main);
-    font-size: 1rem;
-  }
-  
-  .search-box input::placeholder {
-    color: var(--text-muted);
-  }
-  
-  .filter-box {
-    margin-top: 0.6rem;
-  }
-  
-  .filter-box select {
-    width: 100%;
-    padding: 0.6rem;
-    border-radius: var(--radius);
-    background-color: var(--bg-card);
-    border: 1px solid #1e293b;
-    color: var(--text-main);
-  }
-  
-  /* =========================
-     RESULT LIST
-  ========================= */
-  .result-list {
-    list-style: none;
-    margin-top: 1rem;
-  }
-  
-  .result-list li {
-    background-color: var(--bg-card);
-    border: 1px solid #1e293b;
-    border-radius: var(--radius);
-    padding: 0.8rem;
-    margin-bottom: 0.6rem;
-  }
-  
-  .result-list .lafadz {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  
-  .result-list .arti {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-top: 0.2rem;
-  }
-  
-  .result-list .meta {
-    font-size: 0.75rem;
-    margin-top: 0.3rem;
-    color: var(--accent);
-  }
-  
-  /* =========================
-     FORM
-  ========================= */
-  form {
-    background-color: var(--bg-card);
-    padding: 1rem;
-    border-radius: var(--radius);
-    border: 1px solid #1e293b;
-  }
-  
-  .form-group {
-    margin-bottom: 0.9rem;
-  }
-  
-  label {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-bottom: 0.3rem;
-  }
-  
-  input,
-  select,
-  textarea {
-    width: 100%;
-    padding: 0.65rem;
-    border-radius: var(--radius);
-    border: 1px solid #1e293b;
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-size: 0.95rem;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  /* =========================
-     FORM ACTIONS
-  ========================= */
-  .form-actions {
-    display: flex;
-    gap: 0.6rem;
-  }
-  
-  button {
-    flex: 1;
-    padding: 0.7rem;
-    border-radius: var(--radius);
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: background 0.2s ease;
-  }
-  
-  button[type="submit"] {
-    background-color: var(--accent);
-    color: #020617;
-    font-weight: 600;
-  }
-  
-  button.secondary {
-    background-color: #1e293b;
-    color: var(--text-main);
-  }
-  
-  button:hover {
-    opacity: 0.9;
-  }
-  
-  /* =========================
-     FOOTER
-  ========================= */
-  .app-footer {
-    text-align: center;
-    padding: 0.6rem;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    border-top: 1px solid #1e293b;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main: #0f172a;
+  --bg-card: #020617;
+  --bg-soft: #020617cc;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-soft: #0ea5e9;
+  --danger: #ef4444;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   HEADER
+========================= */
+.app-header {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #1e293b;
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* =========================
+   TAB NAV
+========================= */
+.tab-nav {
+  display: flex;
+  border-bottom: 1px solid #1e293b;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+.tab-btn:hover {
+  color: var(--accent-soft);
+}
+
+/* =========================
+   MAIN
+========================= */
+.tab-container {
+  flex: 1;
+  padding: 0.8rem;
+}
+
+/* =========================
+   TAB CONTENT
+========================= */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* =========================
+   SEARCH
+========================= */
+.search-box input {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: var(--radius);
+  border: 1px solid #1e293b;
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.filter-box {
+  margin-top: 0.5rem;
+}
+
+.filter-box select {
+  width: 100%;
+  padding: 0.55rem;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border: 1px solid #1e293b;
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   RESULT LIST (COMPACT)
+========================= */
+.result-list {
+  list-style: none;
+  margin-top: 0.75rem;
+}
+
+.result-list.compact li {
+  background: var(--bg-card);
+  border: 1px solid #1e293b;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.65rem;
+  margin-bottom: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.result-list .lafadz {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.result-list .arti {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.result-list .meta {
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+/* action button kecil */
+.result-actions {
+  margin-top: 0.3rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.result-actions button {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #1e293b;
+  color: var(--text-main);
+}
+
+.btn-delete {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* =========================
+   FORM
+========================= */
+form {
+  background: var(--bg-card);
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid #1e293b;
+}
+
+.form-group {
+  margin-bottom: 0.75rem;
+}
+
+.form-group.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #1e293b;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* =========================
+   FORM ACTIONS
+========================= */
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+button[type="submit"] {
+  background: var(--accent);
+  color: #020617;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: #1e293b;
+  color: var(--text-main);
+}
+
+/* =========================
+   MODAL TASRIF
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  width: 92%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid #1e293b;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+}
+
+.modal-header h3 {
+  font-size: 0.95rem;
+}
+
+.modal-header button {
+  background: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.modal-body {
+  padding: 0.7rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* =========================
+   TASRIF TABLE
+========================= */
+.tasrif-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.tasrif-table td,
+.tasrif-table th {
+  border: 1px solid #1e293b;
+  padding: 0.35rem;
+  text-align: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.app-footer {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border-top: 1px solid #1e293b;
+}
